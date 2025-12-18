@@ -1,0 +1,27 @@
+# Input data dari pengguna
+nama = input("Masukkan nama lengkap: ")
+telepon = input("Masukkan nomor telepon: ")
+email = input("Masukkan email: ")
+
+# Variabel untuk menampung pesan error
+errors = []
+
+# Validasi nama (hanya huruf dan spasi)
+if not nama.replace(" ", "").isalpha():
+    errors.append("Nama lengkap harus hanya berisi huruf.")
+
+# Validasi nomor telepon (hanya angka)
+if not telepon.isdigit():
+    errors.append("Nomor telepon harus hanya berisi angka.")
+
+# Validasi email (harus mengandung @ dan .)
+if "@" not in email or "." not in email:
+    errors.append("Email harus mengandung karakter @ dan .")
+
+# Hasil validasi
+if len(errors) == 0:
+    print("\nData pendaftaran valid.")
+else:
+    print("\nTerjadi kesalahan:")
+    for error in errors:
+        print("-", error)
